@@ -1,7 +1,6 @@
 sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
-mv $GITHUB_WORKSPACE/patch/ipq50xx/199-ipq50xx package/base-files/files/etc/uci-defaults/199-ipq50xx
-sed -i 's#downloads.openwrt.org#mirror.nju.edu.cn/openwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
+mv $GITHUB_WORKSPACE/patch/hzyitc/199-ipq50xx.sh package/base-files/files/etc/uci-defaults/199-ipq50xx.sh
 
 #完全删除luci版本,缩减luci长度
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
@@ -10,10 +9,6 @@ sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-stat
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/usr/lib/os-release
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/openwrt_release
 
-
-git clone --depth=1 https://github.com/vernesong/OpenClash.git  package/openclash
-
-
 # 添加kenzok8_small插件库, 编译新版Sing-box和hysteria，需golang版本1.20或者以上版本 ，可以用以下命令
 rm -rf feeds/packages/lang/golang
 git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
@@ -21,7 +16,7 @@ git clone --depth 1 https://github.com/sbwml/packages_lang_golang -b 24.x feeds/
 rm -rf feeds/packages/net/{chinadns-ng,dns2socks,dns2tcp,hysteria,ipt2socks,microsocks,naiveproxy}
 rm -rf feeds/packages/net/{pdnsd-alt,simple-obfs,sing-box,tcping,trojan*,tuic-client,v2ray*,xray*,mosdns,redsocks2}
 
-#git clone --depth 1 https://github.com/fw876/helloworld.git package/helloworld
+git clone --depth=1 https://github.com/vernesong/OpenClash.git  package/openclash
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall-packages
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/luci-app-passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/luci-app-passwall2
