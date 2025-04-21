@@ -26,23 +26,6 @@ rm -rf feeds/packages/net/{v2ray-geodata,mosdns}
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-# iStore
-git clone --depth=1 -b master https://github.com/linkease/nas-packages.git package/mypackage/nas-packages
-git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci.git package/mypackage/nas-luci
-mv package/mypackage/nas-packages/network/services/* package/mypackage/nas-packages/
-rm -rf package/mypackage/nas-packages/network
-
-#下载5g模块
-git clone --depth=1 https://github.com/Siriling/5G-Modem-Support.git package/5g-modem
-#sed -i '/pcie_mhi/d' package/5g-modem/luci-app-modem/Makefile
-#sed -i 's/移动通信模组/通信模组/g' package/5g-modem/luci-app-modem/po/zh-cn/modem.po
-#sed -i 's/移动通信模组/通信模组/g' package/5g-modem/luci-app-modem/po/zh_Hans/modem.po
-#sed -i 's/\"network\"/\"modem\"/g' package/5g-modem/luci-app-modem/luasrc/controller/modem.lua
-rm -rf feeds/packages/net/quectel-cm
-rm -rf feeds/packages/kernel/fibocom-qmi-wwan
-rm -rf feeds/packages/kernel/quectel-qmi-wwan
-rm -rf feeds/luci/protocols/luci-proto-quectel
-
 git clone --depth 1 https://github.com/gdy666/luci-app-lucky.git package/luci-app-lucky
 #git clone --depth=1 https://github.com/kenzok8/small-package.git package/small-package
 #mv package/small-package/luci-app-adguardhome package/luci-app-adguardhome
