@@ -16,6 +16,7 @@ uci commit
 
 sed -i '/core/d' /etc/opkg/distfeeds.conf
 sed -i '/nss/d' /etc/opkg/distfeeds.conf
+sed -i '/video/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
