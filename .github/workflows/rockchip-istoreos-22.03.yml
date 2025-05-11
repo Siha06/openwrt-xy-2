@@ -8,7 +8,7 @@ env:
   REPO_URL: https://github.com/istoreos/istoreos.git
   REPO_BRANCH: istoreos-22.03
   CONFIG_FILE: config/rockchip-istoreos
-  DIY_SCRIPT: script/rockchip-istoreos
+  DIY_SCRIPT: script/istoreos.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
