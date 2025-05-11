@@ -7,6 +7,13 @@ mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-ipq40xx package/base-files/files
 sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
 mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 
+if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
+    git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
+    tar -zxf package/openclash-core/master/meta/clash-linux-armv7.tar.gz -C package/base-files/files/etc/
+    mv package/base-files/files/etc/clash package/base-files/files/etc/my-clash
+    rm -rf package/openclash-core
+fi
+
 #完全删除luci版本,缩减luci长度
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #sed -i "s/+ ' ' + luciversion.revision//" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
