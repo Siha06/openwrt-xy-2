@@ -5,7 +5,3 @@ CONFIG_TARGET_ar71xx_generic_DEVICE_tl-mr12u-v1=y
 CONFIG_PACKAGE_kmod-usb-storage=y
 CONFIG_PACKAGE_kmod-usb-storage-extras=y
 CONFIG_PACKAGE_kmod-usb2=y
-# CONFIG_PACKAGE_luci-lib-fs is not set
-# CONFIG_PACKAGE_luci is not set
-# CONFIG_PACKAGE_luci-proto-ipv6 is not set
-# CONFIG_PACKAGE_luci-theme-bootstrap is not set
