@@ -4,3 +4,5 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.10.99/g" $(find ./feeds/luci/modules/
 mv $GITHUB_WORKSPACE/patch/virtualhere/199-diy.sh package/base-files/files/etc/uci-defaults/199-diy.sh
 mv $GITHUB_WORKSPACE/patch/virtualhere/virtualhere package/base-files/files/etc/virtualhere
 mv $GITHUB_WORKSPACE/patch/virtualhere/config.ini package/base-files/files/etc/virtualhere-config.ini
+
+sed -i '/define Host\/Clean/i \HOST_CPPFLAGS += -D_DYNAMIC_STACK_SIZE_SOURCE' tools/m4/Makefile
