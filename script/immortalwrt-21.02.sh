@@ -5,10 +5,11 @@ sed -i 's/ImmortalWrt/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211
 #mv $GITHUB_WORKSPACE/patch/imm21.02/mac80211.sh $OPENWRT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
+sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
 
 # 小米4a千兆版
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/image/mt7621.mk target/linux/ramips/image/mt7621.mk
+# mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
+# mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/image/mt7621.mk target/linux/ramips/image/mt7621.mk
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
     git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
@@ -34,12 +35,6 @@ rm -rf feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git  package/openclash
 mv package/openclash/luci-app-openclash feeds/luci/applications/
 rm -rf package/openclash
-
-# iStore
-git clone --depth=1 -b master https://github.com/linkease/nas-packages.git package/mypackage/nas-packages
-git clone --depth=1 -b main https://github.com/linkease/nas-packages-luci.git package/mypackage/nas-luci
-mv package/mypackage/nas-packages/network/services/* package/mypackage/nas-packages/
-rm -rf package/mypackage/nas-packages/network
 
 
 #mv $GITHUB_WORKSPACE/patch/imm21.02/virtualhere/199-mydef.sh package/base-files/files/etc/uci-defaults/199-mydef.sh
