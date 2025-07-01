@@ -35,18 +35,6 @@
 	};
 };
 
-&partitions {
-	partition@180000 {
-		// size changed against to the common dtsi
-		reg = <0x180000 0xe70000>;
-	};
-
-	partition@ff0000 {
-		label = "Config";
-		reg = <0xff0000 0x10000>;
-		read-only;
-	};
-};
 
 &wifi0 {
 	mediatek,mtd-eeprom = <&factory 0x0000>;
