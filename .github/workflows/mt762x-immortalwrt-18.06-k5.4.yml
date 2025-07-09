@@ -1,4 +1,4 @@
-name: mt7621-immortalwrt-18.06-k5.4
+name: mt762x-immortalwrt-18.06-k5.4
 # 脚本参考github/haiibo和dzlea
 # Add a button to trigger the workflow
 on: 
@@ -7,14 +7,14 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: openwrt-18.06-k5.4
-  CONFIG_FILE: config/mt7621-immortalwrt-21.02
-  DIY_SCRIPT: script/immortalwrt-21.02.sh
+  CONFIG_FILE: config/mt762x-immortalwrt-21.02
+  DIY_SCRIPT: script/immortalwrt-18.06-k5.4.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   FIRMWARE_RELEASE: false
-  FIRMWARE_TAG: mt7621-immortalwrt-21.02
+  FIRMWARE_TAG: mt762x-immortalwrt-18.06-k5.4
   TZ: Asia/Shanghai
 
 jobs:
@@ -89,7 +89,7 @@ jobs:
       uses: HiGarfield/cachewrtbuild@main
       with:
         ccache: false
-        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.SOURCE_AUTHOR }}-mt7621
+        mixkey: ${{ env.SOURCE_REPO }}-${{ env.REPO_BRANCH }}-${{ env.SOURCE_AUTHOR }}-mt762x
         prefix: ${{ env.OPENWRT_PATH }}
 
     - name: Install Feeds(安装feeds)
@@ -109,7 +109,7 @@ jobs:
     - name: edit md5
       run: |
         rm -rf $OPENWRT_PATH/.vermagic
-        mv $GITHUB_WORKSPACE/vm/mt7621-immortalwrt-18.06-k5.4 $OPENWRT_PATH/vermagic
+        mv $GITHUB_WORKSPACE/vm/mt762x-immortalwrt-18.06-k5.4 $OPENWRT_PATH/vermagic
         cd $OPENWRT_PATH
         sed -i '121d' include/kernel-defaults.mk
         sed -i '121i\\tcp $(TOPDIR)/vermagic $(LINUX_DIR)/.vermagic' include/kernel-defaults.mk
