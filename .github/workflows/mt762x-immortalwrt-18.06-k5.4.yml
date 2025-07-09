@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: openwrt-18.06-k5.4
-  CONFIG_FILE: config/mt762x-immortalwrt-21.02
+  CONFIG_FILE: config/mt7620-immortalwrt
   DIY_SCRIPT: script/immortalwrt-18.06-k5.4.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
