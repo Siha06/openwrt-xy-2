@@ -7,5 +7,7 @@ mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-diy-wrt1900 package/base-files/f
 sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
 sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
 
+rm -rf feeds/luci/themes/luci-theme-argon
+git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-eqos
 git clone --depth 1 https://github.com/wiwizcom/WiFiPortal.git package/WiFiPortal
