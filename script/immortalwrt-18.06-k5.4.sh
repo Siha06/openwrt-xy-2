@@ -12,7 +12,7 @@ git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-theme-argon.git f
 rm -rf feeds/luci/applications/luci-app-argon-config
 git clone -b 18.06 --depth 1 https://github.com/jerrykuku/luci-app-argon-config.git feeds/luci/themes/luci-app-argon-config
 rm -rf feeds/luci/applications/luci-app-eqos
-git clone --depth 1 https://github.com/wiwizcom/WiFiPortal.git package/WiFiPortal
+#git clone --depth 1 https://github.com/wiwizcom/WiFiPortal.git package/WiFiPortal
 
 # iStore
 git clone --depth=1 -b main https://github.com/linkease/istore.git package/istore
