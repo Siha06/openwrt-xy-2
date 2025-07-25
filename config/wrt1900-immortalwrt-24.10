@@ -1,0 +1,66 @@
+CONFIG_TARGET_mvebu=y
+CONFIG_TARGET_mvebu_cortexa9=y
+CONFIG_TARGET_MULTI_PROFILE=y
+CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt1900ac-v2=y
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt1900ac-v2=""
+CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt1900ac-v1=y
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt1900ac-v1=""
+CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt3200acm=y
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt3200acm=""
+CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt1900acs=y
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt1900acs=""
+
+CONFIG_LUCI_LANG_zh_Hans=y
+# CONFIG_PACKAGE_dnsmasq is not set
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_block-mount=y
+
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_kmod-usb-net-rndis=y
+CONFIG_PACKAGE_kmod-usb-storage=y
+CONFIG_PACKAGE_kmod-usb-storage-extras=y
+CONFIG_PACKAGE_kmod-usb3=y
+
+CONFIG_PACKAGE_lua=y
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-base=y
+CONFIG_PACKAGE_luci-compat=y
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-package-manager-zh-cn=y
+CONFIG_PACKAGE_luci-lua-runtime=y
+CONFIG_PACKAGE_luci-proto-ipv6=y
+CONFIG_PACKAGE_ipv6helper=y
+
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-autoreboot=y
+CONFIG_PACKAGE_luci-app-filemanager=y
+CONFIG_PACKAGE_luci-app-ramfree=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+
+CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_PACKAGE_luci-app-watchcat=y
+
+CONFIG_PACKAGE_luci-app-wizard=y
+
+CONFIG_PACKAGE_luci-app-homeproxy=y
+CONFIG_PACKAGE_luci-app-passwall=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geoview=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Hysteria is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_NaiveProxy is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Server is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Simple_Obfs=y
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_SingBox=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_tuic_client is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Geodata=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray_Plugin is not set
+CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray_Plugin is not set
