@@ -37,3 +37,6 @@ rm -rf feeds/packages/net/{shadowsocksr-libev,simple-obfs,sing-box,tcping,trojan
 #find ./ | grep Makefile | grep mosdns | xargs rm -f
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
+git clone --depth 1 https://github.com/sirpdboy/luci-app-netwizard package/luci-app-netwizard
+mv $GITHUB_WORKSPACE/patch/app/netwizard.lua package/luci-app-netwizard/luci-app-netwizard/luasrc/controller/netwizard.lua
