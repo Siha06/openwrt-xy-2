@@ -12,30 +12,12 @@ mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-giga
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/image/mt7621.mk target/linux/ramips/image/mt7621.mk
 
-if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
-    git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
-    tar -zxf package/openclash-core/master/meta/clash-linux-armv7.tar.gz -C package/base-files/files/etc/
-    mv package/base-files/files/etc/clash package/base-files/files/etc/my-clash
-    rm -rf package/openclash-core
-fi
-
 #完全删除luci版本,缩减luci长度
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #sed -i "s/+ ' ' + luciversion.revision//" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #添加编译日期
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/usr/lib/os-release
 sed -i "s/%C/\/ Complied on $(date +"%Y.%m.%d")/g" package/base-files/files/etc/openwrt_release
-
-git clone --depth 1 https://github.com/coolsnowwolf/lede.git package/lede
-mv package/lede/package/lean/luci-app-leigod-acc package/luci-app-leigod-acc
-mv package/lede/package/lean/leigod-acc package/leigod-acc
-rm -rf package/lede
-
-#安装最新openclash
-rm -rf feeds/luci/applications/luci-app-openclash
-git clone --depth=1 https://github.com/vernesong/OpenClash.git  package/openclash
-mv package/openclash/luci-app-openclash feeds/luci/applications/
-rm -rf package/openclash
 
 
 #mv $GITHUB_WORKSPACE/patch/imm21.02/virtualhere/199-mydef.sh package/base-files/files/etc/uci-defaults/199-mydef.sh
