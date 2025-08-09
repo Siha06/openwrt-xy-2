@@ -4,6 +4,8 @@ CONFIG_TARGET_MULTI_PROFILE=y
 
 CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt3200acm=y
 CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt3200acm=""
+CONFIG_TARGET_DEVICE_mvebu_cortexa9_DEVICE_linksys_wrt1900acs=y
+CONFIG_TARGET_DEVICE_PACKAGES_mvebu_cortexa9_DEVICE_linksys_wrt1900acs=""
 
 CONFIG_LUCI_LANG_zh_Hans=y
 # CONFIG_PACKAGE_dnsmasq is not set
@@ -33,11 +35,11 @@ CONFIG_PACKAGE_luci-app-filemanager=y
 CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 
-CONFIG_PACKAGE_luci-app-upnp=n
+CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-advanced-reboot=y
 CONFIG_PACKAGE_luci-app-argon-config=n
 
-CONFIG_PACKAGE_luci-app-turboacc=n
+# CONFIG_PACKAGE_luci-app-turboacc is not set
 CONFIG_PACKAGE_luci-app-passwall=y
 # CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geoview is not set
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Haproxy=y
