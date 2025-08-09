@@ -9,6 +9,15 @@ sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/l
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 
+mkdir package/mypkg
+git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git package/mypkg/imm23-luci
+mv package/mypkg/imm23-luci/applications/luci-app-autoreboot package/mypkg/luci-app-autoreboot
+mv package/mypkg/imm23-luci/applications/luci-app-ramfree package/mypkg/luci-app-ramfree
+rm -rf feeds/luci/modules
+mv package/mypkg/imm23-luci/modules feeds/luci/modules
+rm -rf package/mypkg/imm23-luci
+sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' $(find ./package/mypkg/ -type f -name "Makefile")
+
 #完全删除luci版本
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #添加编译日期
@@ -21,14 +30,10 @@ git clone --depth 1 https://github.com/vernesong/OpenClash.git package/OpenClash
 git clone --depth 1 https://github.com/nikkinikki-org/OpenWrt-nikki.git package/OpenWrt-nikki
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
-git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall-packages.git package/passwall-packages
 rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-openclash}
 rm -rf feeds/packages/net/{mosdns,v2ray-geodata}
-rm -rf feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust}
-rm -rf feeds/packages/net/{shadowsocksr-libev,simple-obfs,sing-box,tcping,trojan-plus,tuic-client,v2ray-geodata,v2ray-plugin,xray-core,xray-plugin}
 #rm -rf feeds/packages/utils/v2dat
-#find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
-#find ./ | grep Makefile | grep mosdns | xargs rm -f
+
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
