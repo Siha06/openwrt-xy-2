@@ -1,22 +1,18 @@
 #添加TurboAcc
 # curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 # 修改默认IP，主机名
-sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
-sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
-#sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
-#sed -i 's/ImmortalWrt/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-#sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
-#mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
+sed -i 's/192.168.1.1/10.3.2.1/g' package/base-files/files/bin/config_generate
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/10.3.2.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
+sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/OpenWrt/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
+sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
+mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 
-mkdir package/mypkg
-git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git package/mypkg/imm23-luci
-mv package/mypkg/imm23-luci/applications/luci-app-autoreboot package/mypkg/luci-app-autoreboot
-mv package/mypkg/imm23-luci/applications/luci-app-ramfree package/mypkg/luci-app-ramfree
-rm -rf feeds/luci/modules
-mv package/mypkg/imm23-luci/modules feeds/luci/modules
-rm -rf package/mypkg/imm23-luci
-sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' $(find ./package/mypkg/ -type f -name "Makefile")
+# 小米4a千兆版
+mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
+mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
+mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621.mk target/linux/ramips/image/mt7621.mk
 
 #完全删除luci版本
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
