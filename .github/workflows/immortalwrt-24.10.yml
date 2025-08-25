@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/immortalwrt/immortalwrt.git
   REPO_BRANCH: openwrt-24.10
-  CONFIG_FILE: config/7621-immortalwrt-24.10
+  CONFIG_FILE: config/r4a-immortalwrt-24.10
   DIY_SCRIPT: script/immortalwrt-24.10.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
