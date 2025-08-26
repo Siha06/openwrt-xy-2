@@ -43,12 +43,12 @@
 
 
 &wifi0 {
-	nvmem-cells = <&eeprom_factory_0>;
+	mediatek,mtd-eeprom = <&factory 0x0000>;
 	ieee80211-freq-limit = <2400000 2500000>;
 };
 
 &wifi1 {
-	nvmem-cells = <&eeprom_factory_8000>;
+	mediatek,mtd-eeprom = <&factory 0x8000>;
 	ieee80211-freq-limit = <5000000 6000000>;
 };
 
