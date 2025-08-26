@@ -44,13 +44,11 @@
 
 &wifi0 {
 	nvmem-cells = <&eeprom_factory_0>;
-	nvmem-cell-names = "eeprom";
 	ieee80211-freq-limit = <2400000 2500000>;
 };
 
 &wifi1 {
 	nvmem-cells = <&eeprom_factory_8000>;
-	nvmem-cell-names = "eeprom";
 	ieee80211-freq-limit = <5000000 6000000>;
 };
 
