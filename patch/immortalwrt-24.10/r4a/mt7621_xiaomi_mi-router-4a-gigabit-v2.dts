@@ -41,23 +41,6 @@
 	};
 };
 
-/* override EEPROM size to 0x4da8 for MT7613 */
-&eeprom_factory_8000 {
-	reg = <0x8000 0x4da8>;
-};
-
-&partitions {
-	partition@180000 {
-		// size changed against to the common dtsi
-		reg = <0x180000 0xe70000>;
-	};
-
-	partition@ff0000 {
-		label = "Config";
-		reg = <0xff0000 0x10000>;
-		read-only;
-	};
-};
 
 &wifi0 {
 	nvmem-cells = <&eeprom_factory_0>;
