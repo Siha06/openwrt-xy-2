@@ -10,9 +10,9 @@ mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 
 # 小米4a千兆版
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/r4a/mt7621.mk target/linux/ramips/image/mt7621.mk
+mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
+mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
+mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621.mk target/linux/ramips/image/mt7621.mk
 
 #完全删除luci版本
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
