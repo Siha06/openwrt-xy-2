@@ -3,14 +3,14 @@
 # uci set wireless.default_radio0.ssid=OpenWrt-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
 # uci set wireless.default_radio1.ssid=OpenWrt-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-5G
 # uci set wireless.radio0.channel='9'
-uci set wireless.radio1.channel='149'
-uci set wireless.default_radio0.ssid=OpenWrt-2.4G
-uci set wireless.default_radio0.encryption='psk2+ccmp'
-uci set wireless.default_radio0.key='password'
-uci set wireless.default_radio1.ssid=OpenWrt-5G
-uci set wireless.default_radio1.encryption='psk2+ccmp'
-uci set wireless.default_radio1.key='password'
-uci commit wireless
+# uci set wireless.radio1.channel='149'
+# uci set wireless.default_radio0.ssid=OpenWrt-2.4G
+# uci set wireless.default_radio0.encryption='psk2+ccmp'
+# uci set wireless.default_radio0.key='password'
+# uci set wireless.default_radio1.ssid=OpenWrt-5G
+# uci set wireless.default_radio1.encryption='psk2+ccmp'
+# uci set wireless.default_radio1.key='password'
+# uci commit wireless
 
 # 设置所有网口可访问网页终端
 uci delete ttyd.@ttyd[0].interface
@@ -27,11 +27,8 @@ sed -i '/modem/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 
-OPENCLASH_FILE="/etc/config/openclash"
-if [ -f "$OPENCLASH_FILE" ]; then
-    mv /etc/my-clash /etc/openclash/core/clash_meta
-fi
- 
-/etc/init.d/network restart
+cp /etc/my-clash /etc/openclash/core/clash_meta
+
+ # /etc/init.d/network restart
 
 exit 0
