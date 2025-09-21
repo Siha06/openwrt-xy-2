@@ -7,7 +7,7 @@ on:
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: openwrt-23.05
-  CONFIG_FILE: config/wrt1900-immortalwrt-24.10
+  CONFIG_FILE: config/wrt1900-openwrt
   DIY_SCRIPT: script/immortalwrt-24.10.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
@@ -110,7 +110,7 @@ jobs:
     - name: edit md5
       run: |
         rm -rf $OPENWRT_PATH/.vermagic
-        mv $GITHUB_WORKSPACE/vm/wrt1900-immortalwrt-24.10 $OPENWRT_PATH/vermagic
+        mv $GITHUB_WORKSPACE/vm/wrt1900-openwrt-24.10 $OPENWRT_PATH/vermagic
         cd $OPENWRT_PATH
         sed -i '121d' include/kernel-defaults.mk
         sed -i '121i\\tcp $(TOPDIR)/vermagic $(LINUX_DIR)/.vermagic' include/kernel-defaults.mk
