@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# 设置所有网口可访问网页终端
+uci delete ttyd.@ttyd[0].interface
+
+# 设置所有网口可连接 SSH
+uci set dropbear.@dropbear[0].Interface=''
+
+#其他网络设置
+
+uci commit
+
+sed -i '/passwall/d' /etc/opkg/distfeeds.conf
+sed -i '/modem/d' /etc/opkg/distfeeds.conf
+sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
+sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
+sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
+sed -i '/mvebu/d' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/23.05-SNAPSHOT/targets/mvebu/cortexa9/kmods/5.15.189-1-751d59d44c7e94e8615de005c988a0ca' /etc/opkg/customfeeds.conf
+sed -i '$a src/gz corepkg https://mirrors.pku.edu.cn/immortalwrt/releases/23.05-SNAPSHOT/targets/mvebu/cortexa9/packages/' /etc/opkg/customfeeds.conf
+#sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.2/targets/ipq40xx/generic/kmods/6.6.93-1-57fb19177311f373484a24aff6ee2d19' /etc/opkg/customfeeds.conf
+#sed -i '$a src/gz kiddin9 https://dl.openwrt.ai/packages-24.10/aarch64_generic/kiddin9' /etc/opkg/customfeeds.conf
+
+# cp /etc/my-clash /etc/openclash/core/clash_meta
+
+exit 0
