@@ -4,11 +4,10 @@
 sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's/OpenWrt/Xtreme_Link/g' package/base-files/files/bin/config_generate
-sed -i 's/OpenWrt/Xtreme_Link/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 mv $GITHUB_WORKSPACE/patch/xtreme/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 mv $GITHUB_WORKSPACE/patch/xtreme/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+mv $GITHUB_WORKSPACE/patch/xtreme/mac80211.sh package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 mv $GITHUB_WORKSPACE/patch/xtreme/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 mv $GITHUB_WORKSPACE/patch/xtreme/argon.svg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
