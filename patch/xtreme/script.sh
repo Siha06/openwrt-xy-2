@@ -5,6 +5,11 @@ sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_genera
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's/OpenWrt/Xtreme_Link/g' package/base-files/files/bin/config_generate
 
+git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git package/imm23-luci
+rm -rf feeds/luci/modules
+mv package/imm23-luci/modules feeds/luci/modules
+rm -rf package/imm23-luci
+
 mv $GITHUB_WORKSPACE/patch/xtreme/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 mv $GITHUB_WORKSPACE/patch/xtreme/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 mv $GITHUB_WORKSPACE/patch/xtreme/mac80211.sh package/kernel/mac80211/files/lib/wifi/mac80211.sh
