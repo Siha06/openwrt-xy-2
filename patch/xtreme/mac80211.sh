@@ -209,8 +209,9 @@ detect_mac80211() {
 			set wireless.default_${name}.device=${name}
 			set wireless.default_${name}.network=lan
 			set wireless.default_${name}.mode=ap
-			set wireless.default_${name}.ssid=OpenWrt
-			set wireless.default_${name}.encryption=none
+			set wireless.default_${name}.ssid=Xtreme_Link
+			set wireless.default_${name}.encryption=psk2+ccmp
+			set wireless.default_${name}.key=password
 EOF
 		uci -q commit wireless
 	done
