@@ -10,7 +10,7 @@ git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git pac
 rm -rf feeds/luci/modules
 mv package/imm23-luci/modules feeds/luci/modules
 mv package/imm23-luci/themes/luci-theme-argon package/luci-theme-argon
-sed -i 's#../..#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-theme-argon/Makefile
+sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-theme-argon/Makefile
 rm -rf package/imm23-luci
 
 mv $GITHUB_WORKSPACE/patch/xtreme/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
