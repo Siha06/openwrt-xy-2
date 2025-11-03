@@ -12,13 +12,10 @@ mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy-wifi package/base-files/file
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
-    mkdir -p package/base-files/files/etc/openclash/core
-    META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
-    wget -qO- $META_URL | tar xOvz > package/base-files/files/etc/openclash/core/clash_meta
-    chmod +x package/base-files/files/etc/openclash/core/clash_meta
-    # Download GeoIP and GeoSite
-    wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -O package/base-files/files/etc/openclash/GeoIP.dat
-    wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O package/base-files/files/etc/openclash/GeoSite.dat
+    git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
+    tar -zxf package/openclash-core/master/meta/clash-linux-arm64.tar.gz -C package/base-files/files/etc/
+    mv package/base-files/files/etc/clash package/base-files/files/etc/my-clash
+    rm -rf package/openclash-core
 fi
 # 小米4a千兆版
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
