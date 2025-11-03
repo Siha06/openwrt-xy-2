@@ -1,15 +1,21 @@
 #添加TurboAcc
 # curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 # 修改默认IP，主机名
-sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
-sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
+sed -i 's/192.168.1.1/192.168.18.1/g' package/base-files/files/bin/config_generate
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.18.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 sed -i 's/ImmortalWrt/OpenWrt/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
 sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
 #mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
-#mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
-mv $GITHUB_WORKSPACE/patch/immortalwrt-23.05/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
+mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy-wifi package/base-files/files/etc/uci-defaults/zz-diy
+#mv $GITHUB_WORKSPACE/patch/immortalwrt-23.05/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 
+if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
+    git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
+    tar -zxf package/openclash-core/master/meta/clash-linux-arm64.tar.gz -C package/base-files/files/etc/
+    mv package/base-files/files/etc/clash package/base-files/files/etc/my-clash
+    rm -rf package/openclash-core
+fi
 # 小米4a千兆版
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/r4a/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
@@ -29,7 +35,6 @@ git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/pa
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-openclash}
 rm -rf feeds/packages/net/{mosdns,v2ray-geodata}
-#rm -rf feeds/packages/utils/v2dat
 
 git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
