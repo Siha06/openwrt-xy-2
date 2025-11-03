@@ -3,12 +3,13 @@
 # 修改默认IP，主机名
 sed -i 's/192.168.1.1/192.168.18.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.18.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
-sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
-sed -i 's/ImmortalWrt/OpenWrt/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
-sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
-#mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy-wifi package/base-files/files/etc/uci-defaults/zz-diy
 #mv $GITHUB_WORKSPACE/patch/immortalwrt-23.05/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
+
+#sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
+#sed -i 's/ImmortalWrt/OpenWrt/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
+#sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
+#mv $GITHUB_WORKSPACE/patch/banner package/base-files/files/etc/banner
 
 if grep -q "openclash=y" "$GITHUB_WORKSPACE/$CONFIG_FILE"; then
     git clone --depth 1 -b core https://github.com/vernesong/OpenClash.git  package/openclash-core
