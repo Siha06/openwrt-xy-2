@@ -81,10 +81,10 @@ for i in $(seq $((existed_wifi_num + 1)) $total_wifi); do
 
     # 根据序号选择wireless设备
     if [ $i -le $final_max_wifi_num ]; then
-        wireless_dev="radio1"
+        wireless_dev="radio0"
 		network_dev="5GAP"
     else
-        wireless_dev="radio0"
+        wireless_dev="radio1"
 		network_dev="2.4GAP"
     fi
 
