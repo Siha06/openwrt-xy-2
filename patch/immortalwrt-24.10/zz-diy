@@ -7,17 +7,21 @@ uci delete ttyd.@ttyd[0].interface
 uci set dropbear.@dropbear[0].Interface=''
 
 #其他网络设置
-
 uci commit
 
-sed -i '/modem/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
+sed -i '/helloworld/d' /etc/opkg/distfeeds.conf
+sed -i '/passwall/d' /etc/opkg/distfeeds.conf
+sed -i '/Modem/d' /etc/opkg/distfeeds.conf
+sed -i '/modem/d' /etc/opkg/distfeeds.conf
+sed -i '/nss/d' /etc/opkg/distfeeds.conf
+sed -i '/sqm/d' /etc/opkg/distfeeds.conf
+sed -i '/qualcommax/d' /etc/opkg/distfeeds.conf
 sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
-#sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.2/targets/mvebu/cortexa9/kmods/6.6.93-1-9cf55ffde167a5e3c6d9a53bda16a59c' /etc/opkg/customfeeds.conf
-#sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.2/targets/ipq40xx/generic/kmods/6.6.93-1-57fb19177311f373484a24aff6ee2d19' /etc/opkg/customfeeds.conf
-#sed -i '$a src/gz kiddin9 https://dl.openwrt.ai/packages-24.10/aarch64_generic/kiddin9' /etc/opkg/customfeeds.conf
+sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/kmods/6.6.110-1-4b2685a557ac913ed0e6c82f0527ed41' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz pkg https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/packages' /etc/opkg/distfeeds.conf
 
-# cp /etc/my-clash /etc/openclash/core/clash_meta
+cp /etc/my-clash /etc/openclash/core/clash_meta
 
 exit 0
