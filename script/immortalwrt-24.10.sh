@@ -1,9 +1,9 @@
 #添加TurboAcc
 # curl -sSL https://raw.githubusercontent.com/chenmozhijin/turboacc/luci/add_turboacc.sh -o add_turboacc.sh && bash add_turboacc.sh
 # 修改默认IP，主机名
-sed -i 's/192.168.1.1/192.168.18.1/g' package/base-files/files/bin/config_generate
-sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.18.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
-mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy-wifi package/base-files/files/etc/uci-defaults/zz-diy
+sed -i 's/192.168.1.1/192.168.5.1/g' package/base-files/files/bin/config_generate
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.5.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
+mv $GITHUB_WORKSPACE/patch/immortalwrt-24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 #mv $GITHUB_WORKSPACE/patch/immortalwrt-23.05/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 
 #sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
