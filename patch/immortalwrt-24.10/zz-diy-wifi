@@ -20,7 +20,16 @@ sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeed
 sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/kmods/6.6.110-1-4b2685a557ac913ed0e6c82f0527ed41' /etc/opkg/distfeeds.conf
 sed -i '$a src/gz pkg https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/packages' /etc/opkg/distfeeds.conf
 
-cp /etc/my-clash /etc/openclash/core/clash_meta
+echo > /etc/opkg/distfeeds.conf
+sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/kmods/6.6.110-1-4b2685a557ac913ed0e6c82f0527ed41' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz pkg https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/targets/qualcommax/ipq807x/packages' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz openwrt_base https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/base' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz openwrt_luci https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/luci' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz openwrt_packages https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/packages' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz openwrt_routing https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/routing' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz openwrt_telephony https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/telephony' /etc/opkg/distfeeds.conf
+echo > /etc/opkg/customfeeds.conf
+sed -i '$a src/gz kiddin9 https://dl.openwrt.ai/releases/24.10/packages/aarch64_cortex-a53/kiddin9' /etc/opkg/customfeeds.conf
 
 # 新增WiFi数量
 increase_wifi_num=16
@@ -92,7 +101,7 @@ for i in $(seq $((existed_wifi_num + 1)) $total_wifi); do
     uci set wireless.wifinet${wifinet_num}=wifi-iface
     uci set wireless.wifinet${wifinet_num}.device="$wireless_dev"
     uci set wireless.wifinet${wifinet_num}.mode='ap'
-    uci set wireless.wifinet${wifinet_num}.ssid="${ssid}${wifi_id}"
+    uci set wireless.wifinet${wifinet_num}.ssid="${wifi_id}"
     uci set wireless.wifinet${wifinet_num}.encryption='psk2+ccmp'
     uci set wireless.wifinet${wifinet_num}.key="$password"
     uci set wireless.wifinet${wifinet_num}.ifname="${network_dev}${wifi_id}"
