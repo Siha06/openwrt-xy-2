@@ -19,8 +19,6 @@ echo "DISTRIB_DESCRIPTION='OpenWrt  '" >> /etc/openwrt_release
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 
-cp /etc/my-clash /etc/openclash/core/clash_meta
-
 #/etc/init.d/network restart
 
 exit 0
