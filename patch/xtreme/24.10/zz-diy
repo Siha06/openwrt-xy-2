@@ -37,6 +37,8 @@ sed -i '/passwall/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
 sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
 sed -i '/targets/d' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/targets/octeon/generic/kmods/6.6.119-1-0b0ef315bbe8dc6a2d0ed22e9254ee4f' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz pkg https://mirrors.pku.edu.cn/openwrt/releases/24.10-SNAPSHOT/targets/octeon/generic/packages' /etc/opkg/distfeeds.conf
 
 #sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 #sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
