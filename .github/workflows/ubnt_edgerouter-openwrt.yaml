@@ -8,11 +8,11 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: openwrt-24.10
   CONFIG_FILE: config/ubnt_edgerouter-4
-  DIY_SCRIPT: patch/xtreme/script.sh
+  DIY_SCRIPT: patch/xtreme/script_24.10.sh
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  FIRMWARE_RELEASE: false
+  FIRMWARE_RELEASE: true
   FIRMWARE_TAG: ubnt_edgerouter-openwrt-24.10
   TZ: Asia/Shanghai
 
@@ -174,7 +174,6 @@ jobs:
         body: |
           ### 📒 固件信息
           - 这是基于官方openwrt源码编译的固件
-          - 💻 这是 mvebu_cortexa9 平台使用的 OpenWrt-rootfs 固件
           - ⚽ 固件源码: ${{ env.REPO_URL }}
           - 💝 源码分支: ${{ env.REPO_BRANCH }}
           - 🌐 默认地址: 192.168.23.1
