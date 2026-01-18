@@ -13,7 +13,7 @@ mv package/imm23-luci/themes/luci-theme-argon package/luci-theme-argon
 sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-theme-argon/Makefile
 rm -rf package/imm23-luci
 
-mv $GITHUB_WORKSPACE/patch/xtreme/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
+mv $GITHUB_WORKSPACE/patch/xtreme/23.05/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
 mv $GITHUB_WORKSPACE/patch/xtreme/23.05/10_system.js feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 mv $GITHUB_WORKSPACE/patch/xtreme/23.05/mac80211.sh package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
