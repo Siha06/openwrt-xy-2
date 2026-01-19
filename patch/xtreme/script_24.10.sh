@@ -20,7 +20,7 @@ mv $GITHUB_WORKSPACE/patch/xtreme/argon.svg package/luci-theme-argon/htdocs/luci
 mv $GITHUB_WORKSPACE/patch/xtreme/24.10/footer.ut package/luci-theme-argon/ucode/template/themes/argon/footer.ut
 mv $GITHUB_WORKSPACE/patch/xtreme/24.10/footer_login.ut package/luci-theme-argon/ucode/template/themes/argon/footer_login.ut
 
-if grep -q "openclash=y" $GITHUB_WORKSPACE/$CONFIG; then
+if grep -q "openclash=y" $GITHUB_WORKSPACE/$CONFIG_FILE; then
     echo "✅ 已选择 luci-app-openclash，添加 openclash core"
     mkdir -p files/etc/openclash/core
     # Download clash_meta
