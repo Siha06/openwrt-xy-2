@@ -22,7 +22,19 @@ mv $GITHUB_WORKSPACE/patch/xtreme/argon.svg package/luci-theme-argon/htdocs/luci
 mv $GITHUB_WORKSPACE/patch/xtreme/23.05/footer.htm package/luci-theme-argon/luasrc/view/themes/argon/footer.htm
 mv $GITHUB_WORKSPACE/patch/xtreme/23.05/footer_login.htm package/luci-theme-argon/luasrc/view/themes/argon/footer_login.htm
 
-
+if grep -q "openclash=y" $GITHUB_WORKSPACE/$CONFIG_FILE; then
+    echo "✅ 已选择 luci-app-openclash，添加 openclash core"
+    mkdir -p files/etc/openclash/core
+    # Download clash_meta
+    META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-armv7.tar.gz"
+    wget -qO- $META_URL | tar xOvz > files/etc/openclash/core/clash_meta
+    chmod +x files/etc/openclash/core/clash_meta
+    # 下载 GeoIP 和 GeoSite
+    # wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -O files/etc/openclash/GeoIP.dat
+    # wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O files/etc/openclash/GeoSite.dat
+else
+    echo "⚪️ 未选择 luci-app-openclash"
+fi
 #完全删除luci版本
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 #添加编译日期
@@ -36,10 +48,5 @@ git clone --depth 1 https://github.com/nikkinikki-org/OpenWrt-nikki.git package/
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall.git package/passwall
 git clone --depth 1 https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 rm -rf feeds/luci/applications/{luci-app-passwall,luci-app-openclash}
-rm -rf feeds/packages/net/{mosdns,v2ray-geodata}
-#rm -rf feeds/packages/utils/v2dat
-
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 
