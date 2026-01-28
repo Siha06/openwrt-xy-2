@@ -1,46 +1,60 @@
 CONFIG_TARGET_ramips=y
 CONFIG_TARGET_ramips_mt76x8=y
-CONFIG_TARGET_ramips_mt76x8_DEVICE_hiwifi_hc5861b=y
-
-CONFIG_LUCI_LANG_zh_Hans=y
+CONFIG_TARGET_ramips_mt76x8_DEVICE_generic=y
+CONFIG_TARGET_ROOTFS_SQUASHFS=y
+CONFIG_TARGET_ROOTFS_SQUASHFS_BLOCK_SIZE=128k
+CONFIG_TARGET_ROOTFS_MAXSIZE=16384k
+CONFIG_WATCHDOG=n
+CONFIG_PACKAGE_watchdog=n
+CONFIG_PACKAGE_watchdog-utils=n
+CONFIG_PACKAGE_cloud=n
+CONFIG_PACKAGE_ddns-scripts=n
+CONFIG_PACKAGE_remote-ssh=n
+CONFIG_PACKAGE_kmod-gpio-switch=y
+CONFIG_PACKAGE_kmod-nft-bridge=y
+CONFIG_PACKAGE_bridge-utils=y
+CONFIG_PACKAGE_iproute2=y
+CONFIG_PACKAGE_kmod-usb-serial=y
+CONFIG_PACKAGE_kmod-usb-serial-option=y
+CONFIG_PACKAGE_kmod-usb-serial-pl2303=y
+CONFIG_PACKAGE_kmod-usb-serial-ch341=y
+CONFIG_PACKAGE_kmod-usb-net=y
+CONFIG_PACKAGE_kmod-usb-net-cdc-ether=y
+CONFIG_PACKAGE_kmod-usb-net-rndis=y
+CONFIG_PACKAGE_comgt=y
+CONFIG_PACKAGE_comgt-ncm=y
+CONFIG_PACKAGE_ppp=y
+CONFIG_PACKAGE_ppp-mod-pppoe=y
+CONFIG_PACKAGE_ppp-mod-pppox=y
+CONFIG_PACKAGE_modemmanager=y
+CONFIG_PACKAGE_mmcli=y
+CONFIG_PACKAGE_usb_modeswitch=y
+CONFIG_PACKAGE_gpioctl-sysfs=y
+CONFIG_PACKAGE_serial-utils=y
+CONFIG_PACKAGE_stty=y
+CONFIG_PACKAGE_luci-app-statistics=y
+CONFIG_PACKAGE_luci-mod-status=y
+CONFIG_PACKAGE_procps-ng-top=y
+CONFIG_PACKAGE_netstat-nat=y
 CONFIG_PACKAGE_luci=y
-CONFIG_PACKAGE_luci-compat=y
-
-CONFIG_PACKAGE_kmod-usb-net-ipheth=n
-CONFIG_PACKAGE_kmod-usb-net-rndis=n
-CONFIG_PACKAGE_kmod-usb-storage=n
-CONFIG_PACKAGE_kmod-usb-storage-extras=n
-CONFIG_PACKAGE_usbmuxd=n
-CONFIG_PACKAGE_usbutils=n
-CONFIG_PACKAGE_libimobiledevice=n
-
-CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-ramfree=y
-CONFIG_PACKAGE_luci-theme-argon=n
-CONFIG_PACKAGE_luci-app-ttyd=y
-# CONFIG_PACKAGE_luci-app-turboacc is not set
-# CONFIG_PACKAGE_luci-app-filetransfer is not set
-# CONFIG_PACKAGE_luci-app-upnp is not set
-
-CONFIG_PACKAGE_luci-app-ssr-plus=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Client is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Server=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Server is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NONE_V2RAY is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray=y
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ChinaDNS_NG=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Hysteria is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_IPT2Socks is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_NaiveProxy is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Redsocks2 is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_V2ray_Plugin is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Tuic-Client is not set
+CONFIG_PACKAGE_luci-base=y
+CONFIG_PACKAGE_luci-mod-admin-full=y
+CONFIG_PACKAGE_luci-mod-network=y
+CONFIG_PACKAGE_luci-mod-system=y
+CONFIG_PACKAGE_luci-mod-services=y
+CONFIG_PACKAGE_luci-theme-bootstrap=y
+CONFIG_PACKAGE_luci-app-attool=y
+CONFIG_PACKAGE_screen=y
+CONFIG_PACKAGE_minicom=y
+CONFIG_PACKAGE_socat=y
+CONFIG_PACKAGE_telnet=y
+CONFIG_PACKAGE_sysupgrade=y
+CONFIG_PACKAGE_tar=y
+CONFIG_PACKAGE_awk=y
+CONFIG_PACKAGE_grep=y
+CONFIG_PACKAGE_sed=y
+CONFIG_PACKAGE_findutils=y
+CONFIG_PACKAGE_coreutils=y
+CONFIG_PACKAGE_kmod-mt76x0=y
+CONFIG_PACKAGE_wireless-tools=y
+CONFIG_PACKAGE_hostapd=y
