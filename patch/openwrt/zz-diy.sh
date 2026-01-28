@@ -31,15 +31,15 @@ uci commit
 
 sed -i '/passwall/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
-sed -i 's#downloads.openwrt.org#mirrors.pku.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
+sed -i 's#downloads.openwrt.org#mirror.nju.edu.cn/openwrt#g' /etc/opkg/distfeeds.conf
 sed -i '/targets/d' /etc/opkg/distfeeds.conf
-sed -i '$a src/gz kmods https://mirrors.pku.edu.cn/openwrt/releases/23.05-SNAPSHOT/targets/mvebu/cortexa9/kmods/5.15.189-1-3afe63059a10f5d607124fe31dbdd9c7' /etc/opkg/distfeeds.conf
+sed -i '$a src/gz kmods https://mirror.nju.edu.cn/openwrt/releases/23.05-SNAPSHOT/targets/mvebu/cortexa9/kmods/5.15.189-1-3afe63059a10f5d607124fe31dbdd9c7' /etc/opkg/distfeeds.conf
 sed -i '$a src/gz others https://mirrors.pku.edu.cn/openwrt/releases/23.05-SNAPSHOT/targets/mvebu/cortexa9/packages' /etc/opkg/distfeeds.conf
 
 #sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 #sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
-/etc/init.d/system restart
+#/etc/init.d/system restart
 # /etc/init.d/network restart
 
 exit 0
