@@ -11,9 +11,9 @@ sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
 #mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-x86.sh package/base-files/files/etc/uci-defaults/zz-x86
 #sed -i '/kmod-pcie_mhi/d' feeds/Siriling_modem/luci-app-modem/Makefile
 # 小米4a千兆版
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/image/mt7621.mk target/linux/ramips/image/mt7621.mk
+#mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
+#mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-common.dtsi target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-common.dtsi
+#mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/image/mt7621.mk target/linux/ramips/image/mt7621.mk
 
 #完全删除luci版本,缩减luci长度
 sed -i "s/+ ' \/ ' : '') + (luciversion ||/:/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
