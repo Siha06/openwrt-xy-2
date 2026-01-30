@@ -14,9 +14,8 @@ uci commit
 
 sed -i '/modem/d' /etc/opkg/distfeeds.conf
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
-sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
+sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
 
-cp /etc/my-clash /etc/openclash/core/clash_meta
 
  # /etc/init.d/network restart
 
