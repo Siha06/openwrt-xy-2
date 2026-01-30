@@ -6,9 +6,9 @@ sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 sed -i 's/ImmortalWrt/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
 sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
-
-mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/mac80211.sh $OPENWRT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
+#mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/mac80211.sh $OPENWRT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
 #sed -i '/kmod-pcie_mhi/d' feeds/Siriling_modem/luci-app-modem/Makefile
 # 小米4a千兆版
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts target/linux/ramips/dts/mt7621_xiaomi_mi-router-4a-gigabit-v2.dts
