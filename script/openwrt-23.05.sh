@@ -3,7 +3,7 @@
 sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's/${defaults ? 0 : 1}/0/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
-mv $GITHUB_WORKSPACE/patch/openwrt/zz-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
+mv $GITHUB_WORKSPACE/patch/openwrt/zz-diy-wrt.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
 
 #git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git package/imm23-luci
