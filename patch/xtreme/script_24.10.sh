@@ -9,6 +9,7 @@ git clone --depth 1 https://github.com/jerrykuku/luci-theme-argon.git package/lu
 git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git package/imm24-luci
 rm -rf feeds/luci/modules
 mv package/imm24-luci/modules feeds/luci/modules
+sed -i 's/ImmortalWrt/Xtreme_Link/g' feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/wireless.js
 rm -rf package/imm24-luci
 
 mv $GITHUB_WORKSPACE/patch/xtreme/24.10/zz-diy package/base-files/files/etc/uci-defaults/zz-diy
