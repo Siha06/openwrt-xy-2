@@ -8,7 +8,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt.git
   REPO_BRANCH: openwrt-23.05
   CONFIG_FILE: config/wrt1900-openwrt
-  DIY_SCRIPT: patch/xtreme/script.sh
+  DIY_SCRIPT: patch/xtreme/script_23.05.sh
   #DIY_SCRIPT: script/openwrt.sh
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
