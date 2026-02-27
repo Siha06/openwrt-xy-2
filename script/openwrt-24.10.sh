@@ -1,7 +1,6 @@
 
 # 修改默认IP，主机名
 sed -i 's/192.168.1.1/192.168.23.1/g' package/base-files/files/bin/config_generate
-sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's/${defaults ? 0 : 1}/0/g' package/network/config/wifi-scripts/files/lib/wifi/mac80211.uc
 mv $GITHUB_WORKSPACE/patch/openwrt/zz-diy.sh package/base-files/files/etc/uci-defaults/zz-diy.sh
 
@@ -10,6 +9,8 @@ git clone --depth 1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git pac
 rm -rf feeds/luci/modules
 mv package/imm24-luci/modules feeds/luci/modules
 mv package/imm24-luci/themes/luci-theme-argon package/luci-theme-argon
+sed -i 's/ImmortalWrt/OpenWrt/g' feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/wireless.js
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-theme-argon/Makefile
 rm -rf package/imm24-luci
 
