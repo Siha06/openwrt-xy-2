@@ -10,6 +10,8 @@ git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git pac
 rm -rf feeds/luci/modules
 mv package/imm23-luci/modules feeds/luci/modules
 mv package/imm23-luci/themes/luci-theme-argon package/luci-theme-argon
+sed -i 's/ImmortalWrt/OpenWrt/g' feeds/luci/modules/luci-mod-network/htdocs/luci-static/resources/view/network/wireless.js
+sed -i "s/192\.168\.[0-9]*\.[0-9]*/192.168.23.1/g" $(find ./feeds/luci/modules/luci-mod-system/ -type f -name "flash.js")
 sed -i 's#../../luci.mk#$(TOPDIR)/feeds/luci/luci.mk#g' package/luci-theme-argon/Makefile
 rm -rf package/imm23-luci
 
