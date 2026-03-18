@@ -4,7 +4,6 @@ sed -i 's/ImmortalWrt/OpenWrt/g' package/base-files/files/bin/config_generate
 sed -i 's/ImmortalWrt/OpenWrt/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #mv $GITHUB_WORKSPACE/patch/imm21.02/mac80211.sh $OPENWRT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
 mv $GITHUB_WORKSPACE/patch/immortalwrt-21.02/zz-diy-18.06 package/base-files/files/etc/uci-defaults/zz-diy
-sed -i 's#downloads.immortalwrt.org#mirror.nju.edu.cn/immortalwrt#g' package/emortal/default-settings/files/99-default-settings-chinese
 sed -i 's/ImmortalWrt/OpenWrt/g' include/version.mk
 
 rm -rf feeds/luci/themes/luci-theme-argon
