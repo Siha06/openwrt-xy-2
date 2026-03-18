@@ -12,12 +12,13 @@ uci commit
 #sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 date_version=$(date +"%Y.%m.%d")
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-echo "DISTRIB_REVISION='V${date_version}'" >> /etc/openwrt_release
+#echo "DISTRIB_REVISION='V${date_version}'" >> /etc/openwrt_release
+echo "DISTRIB_REVISION='18.06-k5.4'" >> /etc/openwrt_release
 sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 echo "DISTRIB_DESCRIPTION='OpenWrt  '" >> /etc/openwrt_release
 
 sed -ri '/check_signature/s@^[^#]@#&@' /etc/opkg.conf
-sed -i 's#downloads.immortalwrt.org#mirrors.pku.edu.cn/immortalwrt#g' /etc/opkg/distfeeds.conf
+
 
 #/etc/init.d/network restart
 
