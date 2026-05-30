@@ -81,8 +81,8 @@ return baseclass.extend({
 
 		var fields = [
 			_('Hostname'),         'Xtreme Link',
-			_('Model'),            'Extreme 3200',
-			_('联系方式'),          'Wechat: Shunqi369',
+			_('Model'),            boardinfo.model,
+			_('联系方式'),          'Wechat: ShunQI369',
 			_('Architecture'),     cpuinfo.cpuinfo || boardinfo.system,
 			_('Target Platform'),  (L.isObject(boardinfo.release) ? boardinfo.release.target : ''),
 			_('Firmware Version'), (L.isObject(boardinfo.release) ? boardinfo.release.description + ' / ' : '') + (luciversion || ''),
